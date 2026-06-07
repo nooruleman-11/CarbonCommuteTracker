@@ -309,8 +309,8 @@ public class CarbonCommuteSystem {
     private void printGoodbye() {
         System.out.println();
         System.out.println("  ╔══════════════════════════════════════════════════╗");
-        System.out.println("  ║  Thank you for using CarbonCommute Tracker!    ║");
-        System.out.println("  ║  Every green trip makes a difference.  🌱      ║");
+        System.out.println("  ║  Thank you for using CarbonCommute Tracker!      ║");
+        System.out.println("  ║  Every green trip makes a difference.            ║");
         System.out.println("  ╚══════════════════════════════════════════════════╝");
         System.out.println();
     }
