@@ -30,7 +30,7 @@ public class EmissionReport {
         this.user = user;
     }
 
-    // ── Weekly Report ─────────────────────────────────────────────────────────
+    // ── Weekly Report 
 
     /**
      * Generates a weekly emission report for the given week start date (Monday).
@@ -41,9 +41,8 @@ public class EmissionReport {
 
         printSectionHeader("WEEKLY EMISSION REPORT");
         System.out.printf("  User    : %s%n", user.getName());
-        System.out.printf("  Period  : %s  to  %s%n",
-                weekStart.format(DateTimeFormatter.ofPattern("dd MMM yyyy")),
-                weekEnd.format(DateTimeFormatter.ofPattern("dd MMM yyyy")));
+        System.out.printf("  Period  : %s  to  %s%n",weekStart.format(DateTimeFormatter.ofPattern("dd MMM yyyy")),
+                          weekEnd.format(DateTimeFormatter.ofPattern("dd MMM yyyy")));
         System.out.println();
 
         if (records.isEmpty()) {
@@ -55,10 +54,10 @@ public class EmissionReport {
         double totalDistance = sumDistance(records);
         printRecordsTable(records);
         System.out.println();
-        System.out.printf("  ► Trips this week   : %d%n", records.size());
-        System.out.printf("  ► Distance covered  : %.1f km%n", totalDistance);
-        System.out.printf("  ► Total CO2 emitted : %.4f kg%n", totalEmission);
-        System.out.printf("  ► Est. monthly total: %.4f kg  (weekly × 4)%n", totalEmission * 4);
+        System.out.printf("  Trips this week   : %d%n", records.size());
+        System.out.printf("  Distance covered  : %.1f km%n", totalDistance);
+        System.out.printf("  Total CO2 emitted : %.4f kg%n", totalEmission);
+        System.out.printf("  Est. monthly total: %.4f kg  (weekly × 4)%n", totalEmission * 4);
         System.out.println();
         printEcoScore(totalEmission, "week");
         printModeBreakdown(records, totalEmission);
@@ -67,7 +66,7 @@ public class EmissionReport {
         printSectionFooter();
     }
 
-    // ── Monthly Report ────────────────────────────────────────────────────────
+    // ── Monthly Report
 
     /**
      * Generates a monthly emission report for the given year and month.
@@ -94,10 +93,10 @@ public class EmissionReport {
 
         printRecordsTable(records);
         System.out.println();
-        System.out.printf("  ► Trips this month  : %d%n", records.size());
-        System.out.printf("  ► Distance covered  : %.1f km%n", totalDistance);
-        System.out.printf("  ► Total CO2 emitted : %.4f kg%n", totalEmission);
-        System.out.printf("  ► Avg per trip      : %.4f kg CO2%n",
+        System.out.printf("   Trips this month  : %d%n", records.size());
+        System.out.printf("   Distance covered  : %.1f km%n", totalDistance);
+        System.out.printf("   Total CO2 emitted : %.4f kg%n", totalEmission);
+        System.out.printf("   Avg per trip      : %.4f kg CO2%n",
                 records.isEmpty() ? 0 : totalEmission / records.size());
         System.out.println();
         printEcoScore(totalEmission / 4.0, "week (monthly avg)");
@@ -107,8 +106,7 @@ public class EmissionReport {
         printSectionFooter();
     }
 
-    // ── Full Summary Report ───────────────────────────────────────────────────
-
+    // ── Full Summary Report 
     /**
      * Generates a complete all-time summary report for the user.
      */
@@ -140,7 +138,7 @@ public class EmissionReport {
         printSectionFooter();
     }
 
-     // ── Eco Score ─────────────────────────────────────────────────────────────
+     // ── Eco Score
 
  // /**
  //* Prints an eco-score badge based on weekly CO2 output.
@@ -164,7 +162,7 @@ public class EmissionReport {
          printSectionFooter();
      }
 
-    // // ── Helpers ───────────────────────────────────────────────────────────────
+    // // ── Helpers 
 
      private double sumEmission(List<CommuteRecord> records) {
          return records.stream().mapToDouble(CommuteRecord::getEmissionKg).sum();
@@ -234,9 +232,7 @@ public class EmissionReport {
      }
 
      private void printRecordsTable(List<CommuteRecord> records) {
-         System.out.println("  ─────┬──────────────┬─────────────────┬────────────┬─────────────────");
          System.out.println("   No. │ Date         │ Transport       │ Distance   │ Emission        ");
-         System.out.println("  ─────┼──────────────┼─────────────────┼────────────┼─────────────────");
          int i = 1;
          for (CommuteRecord r : records) {
              System.out.printf("  %-3d │ %-12s │ %-15s │ %6.1f km  │ %8.4f kg CO2%n",
@@ -245,9 +241,7 @@ public class EmissionReport {
                      r.getTransportMode().getModeName(),
                      r.getDistanceKm(),
                      r.getEmissionKg());     }
-         System.out.println("  ─────┴──────────────┴─────────────────┴────────────┴─────────────────");
      }
-
     private long getWeekSpan(List<CommuteRecord> records) {
          if (records.isEmpty()) return 1;
          LocalDate min = records.stream().map(CommuteRecord::getDate).min(Comparator.naturalOrder()).get();
@@ -257,9 +251,7 @@ public class EmissionReport {
 
      private void printSectionHeader(String title) {
          System.out.println();
-         System.out.println("  ╔══════════════════════════════════════════════════╗");
          System.out.printf( "  ║  %-48s║%n", title);
-       System.out.println("  ╚══════════════════════════════════════════════════╝");
      }
 
      private void printSectionFooter() {
