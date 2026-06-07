@@ -108,7 +108,7 @@ public class CarbonCommuteGUI extends JFrame {
         JPanel left = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
         left.setOpaque(false);
 
-        JLabel icon = new JLabel("🌿");
+        JLabel icon = new JLabel("-");
         icon.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 26));
         icon.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 10));
 
@@ -143,10 +143,10 @@ public class CarbonCommuteGUI extends JFrame {
         tabbedPane.setFont(FONT_BODY);
         tabbedPane.setBackground(CLR_BG);
 
-        tabbedPane.addTab("  👤  Users  ",    buildUsersTab());
-        tabbedPane.addTab("  ➕  Log Trip  ", buildLogTab());
-        tabbedPane.addTab("  📋  History  ",  buildHistoryTab());
-        tabbedPane.addTab("  📊  Reports  ",  buildReportTab());
+        tabbedPane.addTab("    Users  ",    buildUsersTab());
+        tabbedPane.addTab("    Log Trip  ", buildLogTab());
+        tabbedPane.addTab("    History  ",  buildHistoryTab());
+        tabbedPane.addTab("    Reports  ",  buildReportTab());
 
         return tabbedPane;
     }
